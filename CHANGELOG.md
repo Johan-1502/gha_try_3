@@ -1,5 +1,3 @@
-## 2025-03-15
+# Changelog
 
-
-
-## 2025-03-15
+Todos los cambios notables en este proyecto serán documentados en este archivo.
