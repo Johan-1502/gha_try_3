@@ -10,11 +10,15 @@ jobs:
   update-changelog:
     runs-on: ubuntu-latest
     steps:
+        
       - name: Checkout del repositorio
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0
-          
+          fetch-depth: 0  # Trae todas las referencias
+
+      - name: Determinar rama actual
+        run: echo "CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_ENV
+
       - name: Generar CHANGELOG
         id: changelog
         uses: mikepenz/release-changelog-builder-action@v3
@@ -45,5 +49,5 @@ jobs:
           git add CHANGELOG.md
           git diff --quiet && git diff --staged --quiet || git commit -m "docs: actualizar CHANGELOG.md"
 
-          git pull --rebase origin master
-          git push origin master
+          git pull --rebase origin $CURRENT_BRANCH
+          git push origin $CURRENT_BRANCH
