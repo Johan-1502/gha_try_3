@@ -5,6 +5,6 @@ public class service {
         return "Hola " + name;
     }
     public String bye(String name){
-        return "Bye " + name;
+        return "Bye user " + name;
     }
 }
