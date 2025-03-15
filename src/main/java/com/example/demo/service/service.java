@@ -7,4 +7,8 @@ public class service {
     public String bye(String name){
         return "Bye user " + name;
     }
+    
+    public String morning(String name){
+        return "Good morning user " + name;
+    }
 }
