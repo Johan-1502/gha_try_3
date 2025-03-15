@@ -40,7 +40,8 @@ jobs:
 
           # Agregar nueva entrada al principio del archivo
           echo -e "## $TODAY\n\n${{ steps.changelog.outputs.changelog }}\n\n$(cat CHANGELOG.md)" > CHANGELOG.md
-
+      - name: Debug Changelog Output
+        run: echo "${{ steps.changelog.outputs.changelog }}"
       - name: Hacer commit y push si hay cambios
         run: |
           git config --local user.email "action@github.com"
